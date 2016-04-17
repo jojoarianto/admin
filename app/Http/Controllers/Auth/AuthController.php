@@ -90,7 +90,6 @@ class AuthController extends Controller
      */
     public function postRegister(Request $request)
     {
-        // return $this->register($request);
         return "No access allow";
     }
 }

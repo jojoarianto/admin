@@ -12,6 +12,7 @@ Route::group(['middleware' => ['web']], function () {
 		    Route::get('/',['as'=>'admin.soal.index', 'uses'=>'Admin\SoalController@index']);
 		    Route::get('/create',['as'=>'admin.soal.create', 'uses'=>'Admin\SoalController@create']);
 	    });
+        
     });
 
 });
