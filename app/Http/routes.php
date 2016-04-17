@@ -1,16 +1,17 @@
 <?php
 
-/*
-|--------------------------------------------------------------------------
-| Application Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register all of the routes for an application.
-| It's a breeze. Simply tell Laravel the URIs it should respond to
-| and give it the controller to call when that URI is requested.
-|
-*/
+Route::group(['middleware' => ['web']], function () {
+    
+    Route::auth();
+    // Route::get('/home', 'HomeController@index');
+    Route::get('/', ['as'=>'admin.soal.index',  'middleware' => ['auth'], 'uses'=>'Admin\SoalController@index']);
 
-Route::get('/', function () {
-    return view('welcome');
+	// Admin URL GROUP
+    Route::group( ['prefix'=>'', 'middleware' => ['auth'] ], function(){
+	    Route::group(['prefix'=>'soal'], function(){
+		    Route::get('/',['as'=>'admin.soal.index', 'uses'=>'Admin\SoalController@index']);
+		    Route::get('/create',['as'=>'admin.soal.create', 'uses'=>'Admin\SoalController@create']);
+	    });
+    });
+
 });

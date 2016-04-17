@@ -9,7 +9,7 @@
     <body class="hold-transition register-page">
     <div class="register-box">
         <div class="register-logo">
-            <a href="{{ url('/home') }}"><b>Admin</b>LTE</a>
+            <b>AdminPanel</b> Olimpiade.id
         </div>
 
         @if (count($errors) > 0)
@@ -56,9 +56,7 @@
                     </div><!-- /.col -->
                 </div>
             </form>
-
-            @include('auth.partials.social_login')
-
+            <hr>
             <a href="{{ url('/login') }}" class="text-center">I already have a membership</a>
         </div><!-- /.form-box -->
     </div><!-- /.register-box -->
